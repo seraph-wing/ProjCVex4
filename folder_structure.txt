@@ -1,0 +1,31 @@
+Folder Structure for: .
+
+- classifier.py
++ datasets
+  + test_data
+    + Alan_Ball
+    + Al_Pacino
+    + Manuel_Pellegrini
+    + Maria_Shriver
+    + Marina_Silva
+    + Nancy_Sinatra
+    + Peter_Gilmour
+  + training_data
+    + Alan_Ball
+    + Manuel_Pellegrini
+    + Marina_Silva
+    + Nancy_Sinatra
+    + Peter_Gilmour
+- dir_curve.py
+- evaluation.py
+- evaluation_test_data.pkl
+- evaluation_training_data.pkl
+- face_detector.py
+- face_recognition.py
+- folder_structure.py
+- folder_structure.txt
+- README.md
+- requirements.txt
+- resnet50_128.onnx
+- test.py
+- training.py
