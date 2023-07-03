@@ -2,9 +2,7 @@ import cv2
 import numpy as np
 import pickle
 import os
-import random
 from scipy import spatial
-
 
 # FaceNet to extract face embeddings.
 class FaceNet:
@@ -55,11 +53,9 @@ class FaceRecognizer:
         with open("recognition_gallery.pkl", 'rb') as f:
             (self.labels, self.embeddings) = pickle.load(f)
 
-    # ToDo
     def update(self, face, label):
         return None
 
-    # ToDo
     def predict(self, face):
         return None
 
@@ -74,16 +70,8 @@ class FaceClustering:
 
         # The underlying gallery: embeddings without class labels.
         self.embeddings = np.empty((0, self.facenet.get_embedding_dimensionality()))
-
-        # Number of cluster centers for k-means clustering.
-        self.num_clusters = num_clusters
-        # Cluster centers.
         self.cluster_center = np.empty((num_clusters, self.facenet.get_embedding_dimensionality()))
-        # Cluster index associated with the different samples.
         self.cluster_membership = []
-
-        # Maximum number of iterations for k-means clustering.
-        self.max_iter = max_iter
 
         # Load face clustering from pickle file if available.
         if os.path.exists("clustering_gallery.pkl"):
@@ -99,14 +87,12 @@ class FaceClustering:
         with open("clustering_gallery.pkl", 'r') as f:
             (self.embeddings, self.num_clusters, self.cluster_center, self.cluster_membership) = pickle.load(f)
 
-    # ToDo
     def update(self, face):
-        return None
-    
-    # ToDo
+        embedding = self.facenet.predict(face)
+        self.embeddings = np.vstack((self.embeddings, embedding))
+
     def fit(self):
         return None
 
-    # ToDo
     def predict(self, face):
         return None
